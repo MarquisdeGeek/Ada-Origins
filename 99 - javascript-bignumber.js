@@ -1,6 +1,13 @@
 // Library copied in from https://github.com/MikeMcl/bignumber.js/
 const BigNumber = require('./bignumber.js');
 
+// The analytical engine was to have 40 digit columns.
+// We're not able to split pre- and post- decimal places,
+// so 39 is roughly accurate for the first 8 numbers, since
+// there is only 1 digital before the decimal point.
+// https://en.wikipedia.org/wiki/Analytical_engine
+BigNumber.set({ DECIMAL_PLACES: 39 })
+
 
 let state = {
   n: 3,
