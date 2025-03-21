@@ -1,13 +1,21 @@
+let Fraction = require('./fraction').Fraction
+
 
 let state = {
   n: 3,
   results: []
 }
 
-for(var i=0;i<4;++i) {
+console.log(`The even-indexed Bernoulli numbers:\n[0] =  1`);
+
+for(var i=0;i<9;++i) {
   nativeJavaScript(state);
-  console.log(state.results[i + 2]);
+
+  const bn = state.results[i];
+  console.log(`[${i+1}] = ${bn<0?'':' '}${(bn).toFixed(9)} (~= ${new Fraction(bn).toString()})`);
 }
+console.log(`(all fractionals are approximate, as they've been computed from the decimal)`);
+
 
 // Change state structure
 function nativeJavaScript(state) {
